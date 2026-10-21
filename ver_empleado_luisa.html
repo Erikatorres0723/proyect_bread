@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luisa Torres - Información</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background-color:#FFF8F0;font-family:'Segoe UI',serif;min-height:100vh;display:flex;}
+        .barra-lateral{width:220px;background-color:#B6864C;padding:25px 15px;display:flex;flex-direction:column;}
+        .barra-lateral h1{color:#FFF;font-size:22px;text-align:center;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.3);}
+        .boton-lateral{color:#FFF;text-decoration:none;padding:12px 15px;margin-bottom:8px;border-radius:6px;font-size:16px;position:relative;transition:all 0.2s ease;}
+        .boton-lateral.activo{background-color: transparent;font-weight: 600;border-left: 4px solid #4A90D9;padding-left: 11px;}
+        .boton-lateral:hover{background-color:rgba(255,255,255,0.15);}
+        .espacio{flex-grow:1;}
+        .botones-abajo{margin-top:20px;padding-top:15px;border-top:1px solid rgba(255,255,255,.3);}
+        .btn-regresar{display:block;background-color:#F2D6A0;color:#8B6A40;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;margin-bottom:10px;font-size:15px;font-weight:500;}
+        .btn-regresar:hover{background-color:#E8C88C;}
+        .btn-cerrar{display:block;background-color:#C85050;color:#FFF;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;font-size:15px;}
+        .btn-cerrar:hover{background-color:#B04040;}
+        .contenido-principal{flex-grow:1;padding:30px 40px;}
+        .barra-usuario {background-color: #F2E0C9;color: #5D4037;padding: 12px 25px;border-radius: 6px;margin-bottom: 25px;font-size: 15px;font-weight: 500;display: flex;justify-content: space-between;align-items: center;}
+        .barra-usuario .etiqueta-activa {background-color: #4A90D9;color: #FFFFFF;padding: 4px 12px;border-radius: 12px;font-size: 13px;font-weight: 500;}
+        .encabezado-pagina{margin-bottom:25px;text-align:center;}
+        .encabezado-pagina h1{color:#B6864C;font-size:32px;}
+        .tarjeta-empleado{background-color:#FFF;padding:40px;border-radius:10px;border:2px solid #F2C970;max-width:520px;margin:0 auto;}
+        .tarjeta-empleado h2{color:#B6864C;text-align:center;margin-bottom:30px;font-size:24px;}
+        .dato{padding:10px 0;border-bottom:1px solid #F2E0C9;}
+        .dato label{font-weight:600;color:#5D4037;display:inline-block;width:220px;}
+        .dato span{color:#6B5A40;font-size:15px;}
+        .contenedor-botones{text-align:center;margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
+        .btn-modificar{background-color:#F2C970;color:#5D4037;padding:12px 30px;border:none;border-radius:6px;font-size:16px;text-decoration:none;display:inline-block;font-weight:500;}
+        .btn-modificar:hover{background-color:#E8B860;}
+        .btn-volver{background-color:#4A90D9;color:#FFF;padding:12px 30px;border:none;border-radius:6px;font-size:16px;text-decoration:none;display:inline-block;}
+        .btn-volver:hover{background-color:#357ABD;}
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h1>🥖 PanAmazonas</h1>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral activo">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral">📊 Reportes</a>
+        <div class="espacio"></div>
+        <div class="botones-abajo">
+            <a href="empleados.html" class="btn-regresar">⬅️ Regresar a Empleados</a>
+            <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+        </div>
+    </div>
+    
+    <div class="contenido-principal">
+        <div class="barra-usuario">
+            <span>👋 Bienvenida, Tatiana Torres</span>
+            <span class="etiqueta-activa">● Sección Activa</span>
+        </div>
+        
+        <div class="encabezado-pagina">
+            <h1>👤 Información del Empleado</h1>
+        </div>
+        
+        <div class="tarjeta-empleado">
+            <h2>Luisa Torres</h2>
+            
+            <div class="dato">
+                <label>Documento (Cédula):</label>
+                <span>1012345678</span>
+            </div>
+            <div class="dato">
+                <label>Nombres y Apellidos:</label>
+                <span>Luisa Torres</span>
+            </div>
+            <div class="dato">
+                <label>Correo electrónico:</label>
+                <span>luisa.torres@panamazonas.com</span>
+            </div>
+            <div class="dato">
+                <label>Cargo:</label>
+                <span>Cajera</span>
+            </div>
+            <div class="dato">
+                <label>Teléfono:</label>
+                <span>320 222 3344</span>
+            </div>
+            <div class="dato">
+                <label>💰 Salario mensual:</label>
+                <span>$1.300.000 (Salario mínimo legal)</span>
+            </div>
+            <div class="dato">
+                <label>🏦 Banco:</label>
+                <span>BBVA Colombia</span>
+            </div>
+            <div class="dato">
+                <label>🔢 Número de cuenta:</label>
+                <span>098 765 4321</span>
+            </div>
+            <div class="dato">
+                <label>📅 Fecha de ingreso:</label>
+                <span>1 de febrero de 2025</span>
+            </div>
+            <div class="dato">
+                <label>⏳ Tiempo laborando:</label>
+                <span>8 meses</span>
+            </div>
+            <div class="dato">
+                <label>🕒 Horario de trabajo:</label>
+                <span>8:00 a.m. — 6:00 p.m.</span>
+            </div>
+            <div class="dato">
+                <label>📝 Tipo de contrato:</label>
+                <span>Contrato indefinido</span>
+            </div>
+            <div class="dato">
+                <label>💳 Método de pago:</label>
+                <span>Consignación bancaria</span>
+            </div>
+        </div>
+        
+        <div class="contenedor-botones">
+            <a href="editar_luisa.html" class="btn-modificar">✏️ Modificar información</a>
+            <a href="empleados.html" class="btn-volver">⬅️ Volver a la lista</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura - Ana Gómez</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background-color:#FFF8F0;font-family:'Segoe UI',serif;padding:30px;}
+        .factura{max-width:600px;margin:0 auto;background-color:#FFF;padding:40px;border-radius:10px;border:2px solid #F2C970;}
+        .encabezado{text-align:center;margin-bottom:30px;}
+        .encabezado h1{color:#B6864C;font-size:28px;}
+        .encabezado p{color:#8B7355;font-size:15px;margin-top:5px;}
+        .datos-cliente{background-color:#FDF6E8;padding:20px;border-radius:8px;margin-bottom:25px;}
+        .datos-cliente h3{color:#B6864C;font-size:16px;margin-bottom:15px;}
+        .dato{margin-bottom:10px;}
+        .dato label{color:#8B7355;font-size:14px;font-weight:500;display:inline-block;width:120px;}
+        .dato span{color:#6B5A40;font-size:15px;}
+        table{width:100%;border-collapse:collapse;margin-bottom:25px;}
+        th{background-color:#B6864C;color:#FFF;padding:12px 10px;text-align:left;font-size:15px;}
+        td{padding:12px 10px;border-bottom:1px solid #F0E2C8;color:#6B5A40;font-size:15px;}
+        .total{text-align:right;margin-top:20px;}
+        .total h2{color:#B6864C;font-size:20px;}
+        .total .monto{color:#8B5A20;font-size:28px;font-weight:bold;margin-top:5px;}
+        .boton-volver{text-align:center;margin-top:30px;}
+        .btn-volver{background-color:#B6864C;color:#FFF;padding:10px 25px;text-decoration:none;border-radius:6px;font-size:15px;display:inline-block;}
+        .btn-volver:hover{background-color:#966A3C;}
+    </style>
+</head>
+<body>
+    <div class="factura">
+        <div class="encabezado">
+            <h1>🥖 PanAmazonas</h1>
+            <p>NIT: 123.456.789-0 • Tel: 310-123-4567</p>
+            <p style="margin-top:10px;font-weight:bold;">FACTURA DE VENTA N° 000003</p>
+            <p>Fecha: 11/10/2026</p>
+        </div>
+        <div class="datos-cliente">
+            <h3>👤 Datos del Cliente</h3>
+            <div class="dato"><label>Nombre:</label><span>Ana Gómez</span></div>
+            <div class="dato"><label>Cédula:</label><span>103456789</span></div>
+            <div class="dato"><label>Teléfono:</label><span>310-3456789</span></div>
+            <div class="dato"><label>Dirección:</label><span>Calle 5 #10-15</span></div>
+        </div>
+        <table>
+            <thead>
+                <tr><th>Producto</th><th>Cant</th><th>Valor Unit</th><th>Subtotal</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Pan de Queso</td><td>5</td><td>$2.000</td><td>$10.000</td></tr>
+                <tr><td>Pan de Leche</td><td>10</td><td>$1.000</td><td>$10.000</td></tr>
+            </tbody>
+        </table>
+        <div class="total">
+            <h2>💰 TOTAL A PAGAR</h2>
+            <div class="monto">$20.000</div>
+        </div>
+    </div>
+    <div class="boton-volver">
+        <a href="ver_ana_gomez.html" class="btn-volver">⬅️ Regresar al perfil del cliente</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanAmazonas - Menú Principal</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        :root {
+            --fondo: #FED9ED;
+            --verde: #556B2F;
+            --boton: #F4A460;
+            --texto-oscuro: #333333;
+            --blanco: #FFFFFF;
+            --crema: #FFF8E7;
+            --borde: #DDDDDD;
+        }
+        body {
+            background-color: var(--fondo);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .contenedor {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--borde);
+        }
+        .icono-decoracion {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: var(--verde);
+            font-size: 42px;
+            margin: 0 0 5px 0;
+        }
+        h3 {
+            color: var(--texto-oscuro);
+            font-size: 18px;
+            margin: 0 0 25px 0;
+        }
+        h2 {
+            color: var(--verde);
+            font-size: 24px;
+            margin: 0 0 15px 0;
+        }
+        p {
+            font-size: 16px;
+            color: var(--texto-oscuro);
+            margin-bottom: 30px;
+        }
+        .botones-principales {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        .botones-principales a {
+            display: block;
+            padding: 14px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--blanco);
+            background-color: var(--boton);
+        }
+        .botones-inferiores {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .botones-inferiores a {
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--blanco);
+            background-color: var(--boton);
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+
+        <div class="icono-decoracion">🥐 🧁</div>
+
+        <h1>PanAmazonas</h1>
+        <h3>Panadería y Pastelería</h3>
+
+        <h2>¡Bienvenido al Sistema!</h2>
+        <p>Selecciona una opción del menú principal para comenzar</p>
+
+        <div class="botones-principales">
+            <a href="productos.html">📦 Productos</a>
+            <a href="ventas.html">🛒 Ventas y Facturas</a>
+            <a href="clientes.html">👥 Clientes</a>
+            <a href="proveedores.html">📤 Proveedores</a>
+            <a href="empleados.html">💼 Empleados</a>
+            <a href="reportes.html">📊 Reportes</a>
+        </div>
+
+        <div class="botones-inferiores">
+            <a href="javascript:history.back()">⬅️ Regresar</a>
+            <a href="index.html">🔒 Cerrar Sesión</a>
+        </div>
+
+    </div>
+</body>
+</html>

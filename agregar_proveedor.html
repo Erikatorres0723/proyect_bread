@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Proveedor - PanAmazonas</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background-color:#FFF8F0;font-family:'Segoe UI',serif;min-height:100vh;display:flex;}
+        .barra-lateral{width:220px;background-color:#B6864C;padding:25px 15px;display:flex;flex-direction:column;}
+        .barra-lateral h1{color:#FFF;font-size:22px;text-align:center;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.3);}
+        
+        .boton-lateral{color:#FFF;text-decoration:none;padding:12px 15px;margin-bottom:8px;border-radius:6px;font-size:16px;position:relative;transition:all 0.2s ease;}
+        
+        .boton-lateral.activo{
+            background-color: transparent;
+            font-weight: 600;
+            border-left: 4px solid #4A90D9;
+            padding-left: 11px;
+        }
+        
+        .boton-lateral:hover{background-color:rgba(255,255,255,0.15);}
+        .espacio{flex-grow:1;}
+        .botones-abajo{margin-top:20px;padding-top:15px;border-top:1px solid rgba(255,255,255,.3);}
+        .btn-regresar{display:block;background-color:#F2D6A0;color:#8B6A40;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;margin-bottom:10px;font-size:15px;font-weight:500;}
+        .btn-regresar:hover{background-color:#E8C88C;}
+        .btn-cerrar{display:block;background-color:#C85050;color:#FFF;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;font-size:15px;}
+        .btn-cerrar:hover{background-color:#B04040;}
+        .contenido-principal{
+            flex-grow:1;
+            padding:30px 40px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        
+        /* BARRA DE BIENVENIDA */
+        .barra-usuario {
+            background-color: #F2E0C9;
+            color: #5D4037;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .barra-usuario .etiqueta-activa {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .encabezado-pagina{margin-bottom:30px;text-align:center;}
+        .encabezado-pagina h1{color:#B6864C;font-size:32px;}
+        .encabezado-pagina p{color:#8B7355;font-size:16px;margin-top:5px;}
+        .formulario{background-color:#FFF;padding:30px;border-radius:10px;border:2px solid #F2C970;max-width:600px;}
+        .grupo-form{margin-bottom:20px;}
+        .grupo-form label{display:block;color:#8B7355;font-size:15px;font-weight:500;margin-bottom:8px;}
+        .grupo-form input, .grupo-form textarea, .grupo-form select{width:100%;padding:10px 12px;border:1px solid #E8D4B0;border-radius:6px;font-size:15px;color:#6B5A40;background-color:#FFF9F0;}
+        .grupo-form input:focus, .grupo-form textarea:focus, .grupo-form select:focus{outline:none;border-color:#4A90D9;}
+        .botones-form{display:flex;gap:15px;margin-top:25px;justify-content:center;}
+        .btn-guardar{background-color:#4A90D9;color:#FFF;padding:12px 30px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
+        .btn-guardar:hover{background-color:#357ABD;}
+        .btn-cancelar{background-color:#E0E0E0;color:#555;padding:12px 30px;text-decoration:none;border-radius:6px;font-size:16px;}
+        .btn-cancelar:hover{background-color:#CCCCCC;}
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h1>🥖 PanAmazonas</h1>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral activo">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral">📊 Reportes</a>
+        <div class="espacio"></div>
+        
+        <div class="botones-abajo">
+            <a href="proveedores.html" class="btn-regresar">⬅️ Regresar a Proveedores</a>
+            <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+        </div>
+    </div>
+    <div class="contenido-principal">
+    
+        <!-- BARRA DE BIENVENIDA -->
+        <div class="barra-usuario">
+            <span>👋 Bienvenida, Tatiana Torres</span>
+            <span class="etiqueta-activa">● Sección Activa</span>
+        </div>
+        
+        <div class="encabezado-pagina">
+            <h1>Agregar Nuevo Proveedor</h1>
+            <p>Completa los datos para registrar un proveedor nuevo</p>
+        </div>
+        <div class="formulario">
+            <div class="grupo-form">
+                <label>NIT</label>
+                <input type="text" placeholder="Ej: 900.123.456-7">
+            </div>
+            <div class="grupo-form">
+                <label>Nombre de la Empresa</label>
+                <input type="text" placeholder="Nombre comercial de la empresa">
+            </div>
+            <div class="grupo-form">
+                <label>Nombre del Contacto</label>
+                <input type="text" placeholder="Nombre de la persona de contacto">
+            </div>
+            <div class="grupo-form">
+                <label>Teléfono</label>
+                <input type="text" placeholder="Número de teléfono">
+            </div>
+            <div class="grupo-form">
+                <label>Correo Electrónico</label>
+                <input type="email" placeholder="correo@ejemplo.com">
+            </div>
+            <div class="grupo-form">
+                <label>Dirección</label>
+                <input type="text" placeholder="Dirección completa">
+            </div>
+            
+            <!-- SECCIÓN DE COMPRAS -->
+            <div class="grupo-form">
+                <label>📦 Productos que se compran</label>
+                <textarea rows="3" placeholder="Describe qué productos compramos..."></textarea>
+            </div>
+            <div class="grupo-form">
+                <label>🔢 Cantidad de productos</label>
+                <input type="text" placeholder="Ej: 50 unidades">
+            </div>
+            <div class="grupo-form">
+                <label>💰 Valor total de la compra</label>
+                <input type="text" placeholder="Ej: $562.500">
+            </div>
+            <div class="grupo-form">
+                <label>💳 Método de pago</label>
+                <select>
+                    <option value="">Selecciona una opción</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia bancaria</option>
+                    <option value="tarjeta">Tarjeta de crédito/débito</option>
+                    <option value="credito">A crédito</option>
+                </select>
+            </div>
+            
+            <div class="botones-form">
+                <button class="btn-guardar">✅ Guardar Proveedor</button>
+                <a href="proveedores.html" class="btn-cancelar">❌ Cancelar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

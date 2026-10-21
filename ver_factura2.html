@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Factura FAC-002 - PanAmazonas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #FFF8F0;
+            font-family: 'Segoe UI', serif;
+            min-height: 100vh;
+            display: flex;
+        }
+        .barra-lateral {
+            width: 220px;
+            background-color: #B6864C;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .barra-lateral h2 {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .boton-lateral {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        .boton-lateral:hover { background-color: #966A3C; }
+        .boton-lateral.activo { background-color: #966A3C; font-weight: bold; }
+        .espacio { flex-grow: 1; }
+        .botones-abajo {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-regresar {
+            display: block;
+            background-color: #F2D6A0;
+            color: #8B6A40;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .btn-regresar:hover { background-color: #E8C88C; }
+        .btn-cerrar {
+            display: block;
+            background-color: #C85050;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .btn-cerrar:hover { background-color: #B04040; }
+        .contenido-principal {
+            flex-grow: 1;
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .barra-usuario {
+            background-color: #F2E0C9;
+            color: #5D4037;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 15px;
+            font-weight: 500;
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .barra-usuario .etiqueta-activa {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .encabezado-pagina { margin-bottom: 25px; text-align: center; }
+        .encabezado-pagina h1 { color: #B6864C; font-size: 32px; }
+        .encabezado-pagina p { color: #8B7355; font-size: 16px; margin-top: 5px; }
+        .factura-contenedor {
+            background-color: #FFFFFF;
+            padding: 35px;
+            border-radius: 10px;
+            border: 2px solid #F2C970;
+            width: 100%;
+            max-width: 700px;
+        }
+        .factura-cabecera {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #F2C970;
+        }
+        .factura-cabecera h2 { color: #B6864C; font-size: 24px; }
+        .factura-cabecera p { color: #6B5A40; font-size: 15px; margin-top: 5px; }
+        .factura-datos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .dato-grupo { text-align: center; }
+        .dato-grupo label { display: block; color: #8B7355; font-size: 14px; }
+        .dato-grupo span { color: #6B5A40; font-size: 15px; font-weight: 500; }
+        .factura-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .factura-tabla th {
+            background-color: #B6864C;
+            color: #FFFFFF;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .factura-tabla td {
+            padding: 10px;
+            border-bottom: 1px solid #F0E2C8;
+            color: #6B5A40;
+            font-size: 15px;
+            text-align: center;
+        }
+        .factura-total {
+            text-align: right;
+            font-size: 20px;
+            color: #B6864C;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .botones-accion {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        .btn-regresar-lista {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        .btn-regresar-lista:hover { background-color: #357ABD; }
+        .btn-imprimir {
+            background-color: #F2C970;
+            color: #6B4A20;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .btn-imprimir:hover { background-color: #E0B660; }
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h2>Menú</h2>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral activo">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral">📊 Reportes</a>
+        <div class="espacio"></div>
+        <a href="ventas.html" class="btn-regresar">⬅️ Regresar a Ventas</a>
+        <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+    </div>
+
+    <div class="contenido-principal">
+        <div class="barra-usuario">
+            <span>👋 Bienvenida, Tatiana Torres</span>
+            <span class="etiqueta-activa">● Sección Activa</span>
+        </div>
+
+        <div class="encabezado-pagina">
+            <h1>Detalle de Factura</h1>
+            <p>Información completa de la factura seleccionada</p>
+        </div>
+
+        <div class="factura-contenedor">
+            <div class="factura-cabecera">
+                <h2>🥖 PanAmazonas</h2>
+                <p>Factura de Venta</p>
+            </div>
+
+            <div class="factura-datos">
+                <div class="dato-grupo">
+                    <label>Número de Factura:</label>
+                    <span>FAC-002</span>
+                </div>
+                <div class="dato-grupo">
+                    <label>Fecha:</label>
+                    <span>01/10/2026</span>
+                </div>
+                <div class="dato-grupo">
+                    <label>Cliente:</label>
+                    <span>Nombre del Cliente</span>
+                </div>
+                <div class="dato-grupo">
+                    <label>Cédula:</label>
+                    <span>1.002.345.678</span>
+                </div>
+                <div class="dato-grupo">
+                    <label>Usuario:</label>
+                    <span>Usuario 2</span>
+                </div>
+                <div class="dato-grupo">
+                    <label>Empleado:</label>
+                    <span>Empleado 2</span>
+                </div>
+                <div class="dato-grupo">
+                    <label>Forma de Pago:</label>
+                    <span>💳 Tarjeta</span>
+                </div>
+            </div>
+
+            <table class="factura-tabla">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Valor Unitario</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pan de Leche</td>
+                        <td>10</td>
+                        <td>$2.000</td>
+                        <td>$20.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="factura-total">
+                Total: $20.000
+            </div>
+
+            <div class="botones-accion">
+                <a href="ventas.html" class="btn-regresar-lista">⬅️ Regresar a Ventas</a>
+                <button class="btn-imprimir" onclick="window.print()">🖨️ Imprimir</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

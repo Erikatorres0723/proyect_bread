@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Aprendiendo a Hacer Pan en Casa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #FFF8F0;
+            color: #5C4033;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #D4A76A, #B6864C);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .introduccion {
+            background-color: #FFFFFF;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #B6864C;
+            margin-bottom: 40px;
+        }
+
+        .introduccion h2 {
+            color: #B6864C;
+            margin-bottom: 15px;
+        }
+
+        .indice {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #F2C970;
+            margin-bottom: 40px;
+        }
+
+        .indice h2 {
+            color: #B6864C;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .indice ol {
+            padding-left: 25px;
+        }
+
+        .indice li {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+        .indice a {
+            color: #4A90D9;
+            text-decoration: none;
+        }
+
+        .indice a:hover {
+            text-decoration: underline;
+        }
+
+        .tema {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #F2C970;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .tema:hover {
+            transform: scale(1.01);
+        }
+
+        .tema h3 {
+            color: #B6864C;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #F8EBD8;
+        }
+
+        .imagen-tema {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tema p {
+            font-size: 16px;
+            color: #6B5344;
+            text-align: justify;
+        }
+
+        footer {
+            background-color: #B6864C;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .volver-arriba {
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .volver-arriba a {
+            color: #4A90D9;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .volver-arriba a:hover {
+            text-decoration: underline;
+        }
+
+        .boton-saludo {
+            background-color: #4A90D9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .boton-saludo:hover {
+            background-color: #357ABD;
+        }
+
+        #mensaje {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="arriba">
+        <h1>🥖 Aprendiendo a Hacer Pan en Casa</h1>
+        <p>Un tutorial paso a paso para preparar pan delicioso desde tu cocina</p>
+    </header>
+
+    <div class="contenedor">
+
+        <div class="introduccion">
+            <h2>📖 Bienvenido al Tutorial</h2>
+            <p>Hacer pan es una de las actividades más gratificantes que puedes aprender. Con pocos ingredientes y mucha paciencia, podrás disfrutar de pan recién horneado en tu hogar.</p>
+            <button class="boton-saludo" onclick="mostrarMensaje()">✅ ¡Haz clic aquí antes de empezar!</button>
+            <div id="mensaje">
+                <strong>¡Bienvenido!</strong> Gracias por visitar este tutorial. Sigue cada paso con atención y ¡buen provecho! 🥖✨
+            </div>
+        </div>
+
+        <div class="indice">
+            <h2>📋 Contenido del Tutorial</h2>
+            <ol>
+                <li><a href="#tema1">Conocer los ingredientes básicos</a></li>
+                <li><a href="#tema2">Cómo mezclar y amasar la masa</a></li>
+                <li><a href="#tema3">El tiempo de descanso: dejar crecer la masa</a></li>
+                <li><a href="#tema4">Dar forma al pan</a></li>
+                <li><a href="#tema5">El horneado: el momento final</a></li>
+            </ol>
+        </div>
+
+        <div class="tema" id="tema1">
+            <h3>🌾 1. Conocer los ingredientes básicos</h3>
+            <img src="imagen1.jpg" alt="Ingredientes para hacer pan" class="imagen-tema">
+            <p>Para hacer un pan sencillo necesitas harina de trigo, agua, levadura y sal. La harina aporta la estructura, el agua activa la levadura, la levadura hace crecer el pan y la sal mejora el sabor.</p>
+            <div class="volver-arriba"><a href="#arriba">↑ Volver al inicio</a></div>
+        </div>
+
+        <div class="tema" id="tema2">
+            <h3>✋ 2. Cómo mezclar y amasar la masa</h3>
+            <img src="imagen2.jpg" alt="Amasar la masa de pan" class="imagen-tema">
+            <p>Disuelve la levadura en agua tibia, mezcla con la harina y la sal. Amasa durante 10 a 15 minutos hasta que la masa quede suave y elástica.</p>
+            <div class="volver-arriba"><a href="#arriba">↑ Volver al inicio</a></div>
+        </div>
+
+        <div class="tema" id="tema3">
+            <h3>⏳ 3. El tiempo de descanso: dejar crecer la masa</h3>
+            <img src="imagen3.jpg" alt="Masa de pan descansando" class="imagen-tema">
+            <p>Deja reposar la masa en un lugar cálido hasta que duplique su tamaño. Esto toma entre 1 y 2 horas.</p>
+            <div class="volver-arriba"><a href="#arriba">↑ Volver al inicio</a></div>
+        </div>
+
+        <div class="tema" id="tema4">
+            <h3>🥖 4. Dar forma al pan</h3>
+            <img src="imagen4.jpg" alt="Dar forma al pan" class="imagen-tema">
+            <p>Saca el aire de la masa, dale la forma que prefieras y deja descansar unos 30 a 45 minutos antes de hornear.</p>
+            <div class="volver-arriba"><a href="#arriba">↑ Volver al inicio</a></div>
+        </div>
+
+        <div class="tema" id="tema5">
+            <h3>🔥 5. El horneado: el momento final</h3>
+            <img src="imagen5.jpg" alt="Pan recién horneado" class="imagen-tema">
+            <p>Hornea a 180°C-200°C durante 30 a 40 minutos hasta que esté bien dorado. ¡Deja enfriar y disfruta tu pan!</p>
+            <div class="volver-arriba"><a href="#arriba">↑ Volver al inicio</a></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>📘 Tutorial de Fundamentos en Implementación de Componentes Front-End</p>
+        <p>Elaborado por: Erika Torres — © 2026</p>
+    </footer>
+
+    <script>
+        function mostrarMensaje() {
+            const mensaje = document.getElementById('mensaje');
+            if (mensaje.style.display === 'block') {
+                mensaje.style.display = 'none';
+            } else {
+                mensaje.style.display = 'block';
+            }
+        }
+        console.log('✅ Página cargada correctamente. ¡Bienvenido al Tutorial de Pan!');
+    </script>
+
+</body>
+</html>

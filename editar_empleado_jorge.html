@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Empleado - Jorge Castro</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background-color:#FFF8F0;font-family:'Segoe UI',serif;min-height:100vh;display:flex;}
+        .barra-lateral{width:220px;background-color:#B6864C;padding:25px 15px;display:flex;flex-direction:column;}
+        .barra-lateral h1{color:#FFF;font-size:22px;text-align:center;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.3);}
+        .boton-lateral{color:#FFF;text-decoration:none;padding:12px 15px;margin-bottom:8px;border-radius:6px;font-size:16px;position:relative;transition:all 0.2s ease;}
+        .boton-lateral.activo{background-color: transparent;font-weight: 600;border-left: 4px solid #4A90D9;padding-left: 11px;}
+        .boton-lateral:hover{background-color:rgba(255,255,255,0.15);}
+        .espacio{flex-grow:1;}
+        .botones-abajo{margin-top:20px;padding-top:15px;border-top:1px solid rgba(255,255,255,.3);}
+        .btn-regresar{display:block;background-color:#F2D6A0;color:#8B6A40;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;margin-bottom:10px;font-size:15px;font-weight:500;}
+        .btn-regresar:hover{background-color:#E8C88C;}
+        .btn-cerrar{display:block;background-color:#C85050;color:#FFF;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;font-size:15px;}
+        .btn-cerrar:hover{background-color:#B04040;}
+        .contenido-principal{flex-grow:1;padding:30px 40px;}
+        .barra-usuario {background-color: #F2E0C9;color: #5D4037;padding: 12px 25px;border-radius: 6px;margin-bottom: 25px;font-size: 15px;font-weight: 500;display: flex;justify-content: space-between;align-items: center;}
+        .barra-usuario .etiqueta-activa {background-color: #4A90D9;color: #FFFFFF;padding: 4px 12px;border-radius: 12px;font-size: 13px;font-weight: 500;}
+        .encabezado-pagina{margin-bottom:25px;text-align:center;}
+        .encabezado-pagina h1{color:#B6864C;font-size:32px;}
+        .formulario-contenedor{background-color:#FFF;padding:40px;border-radius:10px;border:2px solid #F2C970;max-width:550px;margin:0 auto;}
+        .form-grupo{margin-bottom:20px;}
+        .form-grupo label{display:block;margin-bottom:8px;font-weight:600;color:#5D4037;}
+        .form-grupo input, .form-grupo select{width:100%;padding:10px 15px;border:1px solid #E8D4B0;border-radius:6px;font-size:15px;background-color:#FFF9F0;}
+        .form-grupo input:focus, .form-grupo select:focus{outline:none;border-color:#4A90D9;}
+        .contenedor-botones{text-align:center;margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
+        .btn-guardar{background-color:#4A90D9;color:#FFF;padding:12px 30px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
+        .btn-guardar:hover{background-color:#357ABD;}
+        .btn-cancelar{background-color:#EF9A9A;color:#8B1A1A;padding:12px 30px;border:none;border-radius:6px;font-size:16px;text-decoration:none;display:inline-block;}
+        .btn-cancelar:hover{background-color:#E57373;}
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h1>🥖 PanAmazonas</h1>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral activo">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral">📊 Reportes</a>
+        <div class="espacio"></div>
+        <div class="botones-abajo">
+            <a href="ver_empleado_jorge.html" class="btn-regresar">⬅️ Regresar</a>
+            <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+        </div>
+    </div>
+    
+    <div class="contenido-principal">
+        <div class="barra-usuario">
+            <span>👋 Bienvenida, Tatiana Torres</span>
+            <span class="etiqueta-activa">● Sección Activa</span>
+        </div>
+        
+        <div class="encabezado-pagina">
+            <h1>✏️ Editar Información del Empleado</h1>
+        </div>
+        
+        <div class="formulario-contenedor">
+            <h2 style="color:#B6864C;text-align:center;margin-bottom:25px;">Jorge Castro</h2>
+            
+            <div class="form-grupo">
+                <label>Documento (Cédula):</label>
+                <input type="text" value="1013456789">
+            </div>
+            <div class="form-grupo">
+                <label>Nombres y Apellidos:</label>
+                <input type="text" value="Jorge Castro">
+            </div>
+            <div class="form-grupo">
+                <label>Correo electrónico:</label>
+                <input type="email" value="jorge.castro@panamazonas.com">
+            </div>
+            <div class="form-grupo">
+                <label>Cargo:</label>
+                <select>
+                    <option>Panadero</option>
+                    <option>Cajera</option>
+                    <option selected>Repartidor</option>
+                    <option>Administrativa</option>
+                    <option>Auxiliar de apoyo</option>
+                </select>
+            </div>
+            <div class="form-grupo">
+                <label>Teléfono:</label>
+                <input type="text" value="320 334 4555">
+            </div>
+            <div class="form-grupo">
+                <label>💰 Salario mensual:</label>
+                <input type="text" value="$1.300.000 + Comisiones">
+            </div>
+            <div class="form-grupo">
+                <label>🏦 Banco:</label>
+                <input type="text" value="BBVA Colombia">
+            </div>
+            <div class="form-grupo">
+                <label>🔢 Número de cuenta:</label>
+                <input type="text" value="045 678 9012">
+            </div>
+            <div class="form-grupo">
+                <label>📅 Fecha de ingreso:</label>
+                <input type="date" value="2024-12-10">
+            </div>
+            <div class="form-grupo">
+                <label>🕒 Horario de trabajo:</label>
+                <input type="text" value="7:00 a.m. — 5:00 p.m.">
+            </div>
+            <div class="form-grupo">
+                <label>📝 Tipo de contrato:</label>
+                <select>
+                    <option selected>Contrato a término fijo</option>
+                    <option>Contrato indefinido</option>
+                    <option>Contrato de aprendizaje</option>
+                </select>
+            </div>
+            
+            <div class="contenedor-botones">
+                <button class="btn-guardar">💾 Guardar Cambios</button>
+                <a href="ver_empleado_jorge.html" class="btn-cancelar">❌ Cancelar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

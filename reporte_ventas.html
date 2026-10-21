@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Ventas - PanAmazonas</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background-color:#FFF8F0;font-family:'Segoe UI',serif;min-height:100vh;display:flex;}
+        .barra-lateral{width:220px;background-color:#B6864C;padding:25px 15px;display:flex;flex-direction:column;}
+        .barra-lateral h1{color:#FFF;font-size:22px;text-align:center;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.3);}
+        .boton-lateral{color:#FFF;text-decoration:none;padding:12px 15px;margin-bottom:8px;border-radius:6px;font-size:16px;position:relative;transition:all 0.2s ease;}
+        .boton-lateral.activo{background-color: transparent;font-weight: 600;border-left: 4px solid #4A90D9;padding-left: 11px;}
+        .boton-lateral:hover{background-color:rgba(255,255,255,0.15);}
+        .espacio{flex-grow:1;}
+        .botones-abajo{margin-top:20px;padding-top:15px;border-top:1px solid rgba(255,255,255,.3);}
+        .btn-regresar{display:block;background-color:#F2D6A0;color:#8B6A40;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;margin-bottom:10px;font-size:15px;font-weight:500;}
+        .btn-regresar:hover{background-color:#E8C88C;}
+        .btn-cerrar{display:block;background-color:#C85050;color:#FFF;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;font-size:15px;}
+        .btn-cerrar:hover{background-color:#B04040;}
+        .contenido-principal{flex-grow:1;padding:30px 40px;}
+        .barra-usuario {background-color: #F2E0C9;color: #5D4037;padding: 12px 25px;border-radius: 6px;margin-bottom: 25px;font-size: 15px;font-weight: 500;display: flex;justify-content: space-between;align-items: center;}
+        .barra-usuario .etiqueta-activa {background-color: #4A90D9;color: #FFFFFF;padding: 4px 12px;border-radius: 12px;font-size: 13px;font-weight: 500;}
+        .encabezado-pagina{margin-bottom:25px;text-align:center;}
+        .encabezado-pagina h1{color:#B6864C;font-size:32px;}
+        .reporte-contenedor{background-color:#FFF;padding:40px;border-radius:10px;border:2px solid #F2C970;max-width:800px;margin:0 auto;}
+        .fecha-generacion{text-align:right;color:#6B5A40;font-size:14px;margin-bottom:20px;}
+        .resumen{display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:20px;margin-bottom:30px;}
+        .tarjeta-dato{background-color:#FFF9F0;padding:20px;border-radius:8px;border:1px solid #E8D4B0;text-align:center;}
+        .tarjeta-dato h3{color:#B6864C;font-size:16px;margin-bottom:10px;}
+        .tarjeta-dato .valor{color:#4A90D9;font-size:24px;font-weight:bold;}
+        table{width:100%;border-collapse:collapse;margin-bottom:30px;}
+        th{background-color:#F2C970;color:#5D4037;padding:12px;text-align:left;}
+        td{padding:12px;border-bottom:1px solid #E8D4B0;color:#6B5A40;}
+        tr:hover{background-color:#FFF9F0;}
+        .contenedor-botones{text-align:center;margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
+        .btn-volver{background-color:#4A90D9;color:#FFF;padding:12px 30px;border:none;border-radius:6px;font-size:16px;text-decoration:none;display:inline-block;}
+        .btn-volver:hover{background-color:#357ABD;}
+        .btn-imprimir{background-color:#F2C970;color:#5D4037;padding:12px 30px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
+        .btn-imprimir:hover{background-color:#E8B860;}
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h1>🥖 PanAmazonas</h1>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral activo">📊 Reportes</a>
+        <div class="espacio"></div>
+        <div class="botones-abajo">
+            <a href="reportes.html" class="btn-regresar">⬅️ Volver a Reportes</a>
+            <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+        </div>
+    </div>
+    
+    <div class="contenido-principal">
+        <div class="barra-usuario">
+            <span>👋 Bienvenida, Tatiana Torres</span>
+            <span class="etiqueta-activa">● Sección Activa</span>
+        </div>
+        
+        <div class="encabezado-pagina">
+            <h1>📈 Reporte de Ventas</h1>
+        </div>
+        
+        <div class="reporte-contenedor">
+            <div class="fecha-generacion">Fecha de generación: 14/10/2026 — 01:21</div>
+            
+            <div class="resumen">
+                <div class="tarjeta-dato">
+                    <h3>Total Ventas</h3>
+                    <div class="valor">$4.580.000</div>
+                </div>
+                <div class="tarjeta-dato">
+                    <h3>Facturas Emitidas</h3>
+                    <div class="valor">24</div>
+                </div>
+                <div class="tarjeta-dato">
+                    <h3>Productos Vendidos</h3>
+                    <div class="valor">186</div>
+                </div>
+                <div class="tarjeta-dato">
+                    <h3>Clientes Atendidos</h3>
+                    <div class="valor">15</div>
+                </div>
+            </div>
+            
+            <h3 style="color:#B6864C;margin-bottom:15px;">📋 Detalle de Ventas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° Factura</th>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Vendedor</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>14/10/2026</td>
+                        <td>María López</td>
+                        <td>Tatiana Torres</td>
+                        <td>$156.000</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>14/10/2026</td>
+                        <td>Juan Pérez</td>
+                        <td>Tatiana Torres</td>
+                        <td>$89.500</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>13/10/2026</td>
+                        <td>Carlos Ruiz</td>
+                        <td>Jorge Castro</td>
+                        <td>$245.000</td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>13/10/2026</td>
+                        <td>Ana García</td>
+                        <td>Tatiana Torres</td>
+                        <td>$112.300</td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>12/10/2026</td>
+                        <td>Luis Martínez</td>
+                        <td>Jorge Castro</td>
+                        <td>$320.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="contenedor-botones">
+                <button class="btn-imprimir">🖨️ Imprimir Reporte</button>
+                <a href="reportes.html" class="btn-volver">⬅️ Volver</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

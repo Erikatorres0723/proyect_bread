@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal - PanAmazonas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FFF8F0;
+            font-family: 'Segoe UI', serif;
+        }
+        /* Barra de usuario */
+        .barra-superior {
+            background-color: #B6864C;
+            color: #FFFFFF;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+        .usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .icono-usuario {
+            font-size: 22px;
+        }
+        .sesion-activa {
+            background-color: #4A90D9;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        /* Encabezado principal */
+        .encabezado {
+            background-color: #C49050;
+            color: #FFFFFF;
+            padding: 35px;
+            text-align: center;
+        }
+        .logo-titulo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .icono-pan {
+            font-size: 48px;
+        }
+        .encabezado h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .subtitulo1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #F8EBD8;
+        }
+        .subtitulo2 {
+            font-size: 18px;
+            color: #F0DFC8;
+        }
+        /* Contenido central */
+        .contenido {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        /* Tarjeta de bienvenida */
+        .tarjeta-bienvenida {
+            background-color: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            border: 3px solid #F2C970;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .tarjeta-bienvenida h2 {
+            color: #B6864C;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .tarjeta-bienvenida p {
+            color: #8B7355;
+            font-size: 20px;
+        }
+        /* Botones del menú */
+        .contenedor-botones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .boton-menu {
+            background-color: #FFFFFF;
+            border: 3px solid #F2C970;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .boton-menu:hover {
+            background-color: #FDF6E8;
+            border-color: #E0B660;
+        }
+        .icono-boton {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .boton-menu span {
+            color: #B6864C;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        /* Botones inferiores */
+        .botones-inferiores {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .btn-regresar {
+            background-color: #F2D6A0;
+            color: #8B6A40;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .btn-regresar:hover {
+            background-color: #E8C88C;
+        }
+        .btn-cerrar {
+            background-color: #C85050;
+            color: #FFFFFF;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .btn-cerrar:hover {
+            background-color: #B04040;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superior -->
+    <div class="barra-superior">
+        <div class="usuario">
+            <span class="icono-usuario">👤</span>
+            <span>Bienvenida, Diana Vargas</span>
+        </div>
+        <span class="sesion-activa">Sesión activa</span>
+    </div>
+
+    <!-- Encabezado principal -->
+    <div class="encabezado">
+        <div class="logo-titulo">
+            <span class="icono-pan">🥖</span>
+            <h1>PanAmazonas</h1>
+        </div>
+        <p class="subtitulo1">Panadería y Pastelería</p>
+        <p class="subtitulo2">Sistema de Gestión</p>
+    </div>
+
+    <!-- Contenido -->
+    <div class="contenido">
+        <!-- Tarjeta de bienvenida -->
+        <div class="tarjeta-bienvenida">
+            <h2>¡Bienvenida al Sistema, Diana!</h2>
+            <p>Selecciona una opción del menú para comenzar</p>
+        </div>
+
+        <!-- Botones del menú -->
+        <div class="contenedor-botones">
+            <a href="productos.html" class="boton-menu">
+                <span class="icono-boton">📦</span>
+                <span>Productos</span>
+            </a>
+            <a href="ventas.html" class="boton-menu">
+                <span class="icono-boton">🛒</span>
+                <span>Ventas y Facturas</span>
+            </a>
+            <a href="clientes.html" class="boton-menu">
+                <span class="icono-boton">👥</span>
+                <span>Clientes</span>
+            </a>
+            <a href="proveedores.html" class="boton-menu">
+                <span class="icono-boton">🏭</span>
+                <span>Proveedores</span>
+            </a>
+            <a href="empleados.html" class="boton-menu">
+                <span class="icono-boton">💼</span>
+                <span>Empleados</span>
+            </a>
+            <a href="reportes.html" class="boton-menu">
+                <span class="icono-boton">📊</span>
+                <span>Reportes</span>
+            </a>
+        </div>
+
+        <!-- Botones de abajo -->
+        <div class="botones-inferiores">
+            <a href="index.html" class="btn-regresar">← Regresar</a>
+            <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - PanAmazonas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FFF8F0;
+            font-family: 'Segoe UI', serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .caja-login {
+            background-color: #FFFFFF;
+            padding: 40px 35px;
+            border-radius: 12px;
+            border: 3px solid #F2C970;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+        .caja-login h1 {
+            color: #B6864C;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        .subtitulo {
+            color: #8B7355;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .grupo-form {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .grupo-form label {
+            display: block;
+            color: #8B6A40;
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .grupo-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #E0C090;
+            border-radius: 6px;
+            font-size: 15px;
+            background-color: #FFFAF3;
+        }
+        .btn-ingresar {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-ingresar:hover {
+            background-color: #357ABD;
+        }
+        .ayuda {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #8B7355;
+        }
+        .ayuda p {
+            margin: 4px 0;
+        }
+        .olvido-link {
+            margin-top: 15px;
+        }
+        .olvido-link a {
+            color: #4A90D9;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .olvido-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja-login">
+        <h1>🥖 PanAmazonas</h1>
+        <p class="subtitulo">Sistema de Gestión y Facturación</p>
+
+        <div class="grupo-form">
+            <label>📋 Número de Cédula</label>
+            <input type="text" placeholder="Escribe tu cédula" id="cedula">
+        </div>
+
+        <div class="grupo-form">
+            <label>🔒 Contraseña</label>
+            <input type="password" placeholder="Escribe tu contraseña" id="contrasena">
+        </div>
+
+        <button class="btn-ingresar" onclick="verificar()">✅ Ingresar al Sistema</button>
+
+        <div class="olvido-link">
+            <a href="recuperar_contraseña.html">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <div class="ayuda">
+            <p><strong>Ejemplos para practicar:</strong></p>
+            <p>👩‍💼 Administradora: Cédula <strong>1000000001</strong> | Clave <strong>123456</strong></p>
+            <p>👩‍💵 Cajera: Cédula <strong>1000000002</strong> | Clave <strong>123456</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Base de datos de ejemplo
+        const usuarios = [
+            { nombre: "Tatiana Torres", cedula: "1000000001", contrasena: "123456", tipo: "admin" },
+            { nombre: "María López", cedula: "1000000002", contrasena: "123456", tipo: "cajera" }
+        ];
+
+        function verificar() {
+            let cedula = document.getElementById("cedula").value;
+            let contrasena = document.getElementById("contrasena").value;
+
+            // Buscar si existe el usuario
+            let usuarioEncontrado = usuarios.find(u => u.cedula === cedula && u.contrasena === contrasena);
+
+            if (usuarioEncontrado) {
+                // Guardamos el nombre para mostrarlo después
+                localStorage.setItem("nombreUsuario", usuarioEncontrado.nombre);
+                localStorage.setItem("tipoUsuario", usuarioEncontrado.tipo);
+
+                // Según el tipo, lo enviamos a un lugar diferente
+                if (usuarioEncontrado.tipo === "admin") {
+                    alert("¡Bienvenida, " + usuarioEncontrado.nombre + "!");
+                    window.location.href = "menu.html";  // Menú completo
+                } else if (usuarioEncontrado.tipo === "cajera") {
+                    alert("¡Bienvenida, " + usuarioEncontrado.nombre + "! ¡Que tengas un excelente día!");
+                    window.location.href = "bienvenida_cajera.html";  // Pantalla de cajera
+                }
+            } else {
+                alert("⚠️ Cédula o contraseña incorrectos. Inténtalo de nuevo.");
+            }
+        }
+    </script>
+</body>
+</html>
+ 

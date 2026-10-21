@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas y Facturas - PanAmazonas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FFF8F0;
+            font-family: 'Segoe UI', serif;
+            min-height: 100vh;
+            display: flex;
+        }
+        .barra-lateral {
+            width: 220px;
+            background-color: #B6864C;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .barra-lateral h2 {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .boton-lateral {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        .boton-lateral:hover {
+            background-color: #966A3C;
+        }
+        .boton-lateral.activo {
+            background-color: #966A3C;
+            font-weight: bold;
+        }
+        .espacio {
+            flex-grow: 1;
+        }
+        .botones-abajo {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-regresar {
+            display: block;
+            background-color: #F2D6A0;
+            color: #8B6A40;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .btn-regresar:hover {
+            background-color: #E8C88C;
+        }
+        .btn-cerrar {
+            display: block;
+            background-color: #C85050;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .btn-cerrar:hover {
+            background-color: #B04040;
+        }
+        .contenido-principal {
+            flex-grow: 1;
+            padding: 30px 40px;
+        }
+        .barra-usuario {
+            background-color: #F2E0C9;
+            color: #5D4037;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .barra-usuario .etiqueta-activa {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .buscador-contenedor {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .buscador-contenedor input {
+            flex: 1;
+            max-width: 400px;
+            padding: 10px 15px;
+            border: 1px solid #E0C090;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        .btn-buscar {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .btn-buscar:hover {
+            background-color: #357ABD;
+        }
+        .encabezado-pagina {
+            margin-bottom: 25px;
+        }
+        .encabezado-pagina h1 {
+            color: #B6864C;
+            font-size: 32px;
+        }
+        .encabezado-pagina p {
+            color: #8B7355;
+            font-size: 16px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        .contenedor-tabla {
+            background-color: #FFFFFF;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #F2C970;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #B6864C;
+            color: #FFFFFF;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 15px;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #F0E2C8;
+            color: #6B5A40;
+            font-size: 15px;
+        }
+        tr:hover {
+            background-color: #FDF6E8;
+        }
+        .btn-ver {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 5px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+        .btn-ver:hover {
+            background-color: #357ABD;
+        }
+        .btn-eliminar {
+            background-color: #C85050;
+            color: #FFFFFF;
+            padding: 5px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn-eliminar:hover {
+            background-color: #B04040;
+        }
+        .estado-pagado {
+            color: #2E7D32;
+            font-weight: 500;
+        }
+        .botones-abajo-tabla {
+            display: flex;
+            justify-content: center;
+        }
+        .btn-nuevo {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        .btn-nuevo:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h2>Menú</h2>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral activo">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral">📊 Reportes</a>
+        <div class="espacio"></div>
+        <a href="menu.html" class="btn-regresar">← Regresar al Inicio</a>
+        <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+    </div>
+
+    <div class="contenido-principal">
+        <div class="barra-usuario">
+            <span>👋 Bienvenida, Tatiana Torres</span>
+            <span class="etiqueta-activa">● Sección Activa</span>
+        </div>
+
+        <div class="encabezado-pagina">
+            <h1>Gestión de Ventas y Facturas</h1>
+            <p>Registra y consulta las facturas de venta</p>
+        </div>
+
+        <div class="buscador-contenedor">
+            <input type="text" placeholder="Buscar factura por número, cliente o fecha...">
+            <button class="btn-buscar">🔍 Buscar</button>
+        </div>
+
+        <div class="contenedor-tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° Factura</th>
+                        <th>Fecha</th>
+                        <th>Usuario</th>
+                        <th>Empleado</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FAC-001</td>
+                        <td>01/10/2026</td>
+                        <td>Usuario 1</td>
+                        <td>Empleado 2</td>
+                        <td>$5.000</td>
+                        <td class="estado-pagado">✅ Pagada</td>
+                        <td>
+                            <a href="ver_factura.html" class="btn-ver">👁️ Ver</a>
+                            <a href="#" class="btn-eliminar">🗑️ Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FAC-002</td>
+                        <td>01/10/2026</td>
+                        <td>Usuario 2</td>
+                        <td>Empleado 2</td>
+                        <td>$20.000</td>
+                        <td class="estado-pagado">✅ Pagada</td>
+                        <td>
+                            <a href="ver_factura2.html" class="btn-ver">👁️ Ver</a>
+                            <a href="#" class="btn-eliminar">🗑️ Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FAC-003</td>
+                        <td>01/10/2026</td>
+                        <td>Usuario 3</td>
+                        <td>Empleado 4</td>
+                        <td>$50.000</td>
+                        <td class="estado-pagado">✅ Pagada</td>
+                        <td>
+                            <a href="ver_factura3.html" class="btn-ver">👁️ Ver</a>
+                            <a href="#" class="btn-eliminar">🗑️ Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="botones-abajo-tabla">
+            <a href="nueva_venta.html" class="btn-nuevo">➕ Nueva Venta</a>
+        </div>
+    </div>
+</body>
+</html>

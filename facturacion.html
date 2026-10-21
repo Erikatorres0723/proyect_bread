@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación - PanAmazonas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FFF8F0;
+            font-family: 'Segoe UI', serif;
+            min-height: 100vh;
+        }
+        .barra-superior {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .barra-superior h2 {
+            font-size: 20px;
+        }
+        .fecha {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .cerrar {
+            color: #FFFFFF;
+            font-size: 14px;
+            text-decoration: none;
+            background-color: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+        .cerrar:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        .contenido {
+            padding: 30px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #B6864C;
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .caja {
+            background-color: #FFFFFF;
+            padding: 20px 25px;
+            border-radius: 10px;
+            border: 2px solid #F2C970;
+            margin-bottom: 25px;
+        }
+        .caja h3 {
+            color: #8B6A40;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .botones-tipo {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-tipo {
+            padding: 12px 25px;
+            border: 2px solid #4A90D9;
+            background-color: #FFFFFF;
+            color: #4A90D9;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .btn-tipo.activo, .btn-tipo:hover {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+        }
+        .caja-cliente {
+            display: none;
+            margin-top: 15px;
+        }
+        .caja-cliente.mostrar {
+            display: block;
+        }
+        .fila-doble {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .campo {
+            flex: 1;
+            min-width: 200px;
+        }
+        .campo label {
+            display: block;
+            color: #8B6A40;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .campo input, .campo select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #E0C090;
+            border-radius: 6px;
+            font-size: 15px;
+            background-color: #FFFAF3;
+        }
+        .agregar-producto {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .btn-agregar {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .btn-agregar:hover {
+            background-color: #357ABD;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #B6864C;
+            color: #FFFFFF;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #F0E2C8;
+            color: #6B5A40;
+            font-size: 14px;
+        }
+        .eliminar-fila {
+            color: #C85050;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .eliminar-fila:hover {
+            text-decoration: underline;
+        }
+        .total {
+            text-align: right;
+            padding-top: 15px;
+            border-top: 2px solid #F2C970;
+        }
+        .total span {
+            color: #8B6A40;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .total strong {
+            color: #4A90D9;
+            font-size: 26px;
+            margin-left: 10px;
+        }
+        .metodos-pago {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .metodo-pago {
+            padding: 10px 18px;
+            border: 2px solid #F2C970;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #FFFAF3;
+            color: #8B6A40;
+        }
+        .metodo-pago.seleccionado {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            border-color: #4A90D9;
+        }
+        .caja-cambio, .caja-tarjeta {
+            background-color: #F2E0C9;
+            padding: 18px;
+            border-radius: 8px;
+            display: none;
+            margin-top: 15px;
+        }
+        .caja-cambio.mostrar, .caja-tarjeta.mostrar {
+            display: block;
+        }
+        .fila-pago {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .cambio-label {
+            color: #8B6A40;
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .cambio-valor {
+            color: #4A90D9;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .botones-final {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .btn-cancelar {
+            background-color: #E0E0E0;
+            color: #444444;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .btn-cancelar:hover {
+            background-color: #BDBDBD;
+        }
+        .btn-finalizar {
+            background-color: #4A90D9;
+            color: #FFFFFF;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-finalizar:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-superior">
+        <h2>👩‍💵 Cajera: <span id="nombreCajera">María López</span></h2>
+        <span class="fecha" id="fechaHoy"></span>
+        <a href="bienvenida_cajera.html" class="cerrar">🚪 Terminar Jornada</a>
+    </div>
+
+    <div class="contenido">
+        <h1>🛒 Facturación de Ventas</h1>
+
+        <!-- PASO 1: Tipo de Cliente -->
+        <div class="caja">
+            <h3>¿Con quién estás atendiendo hoy?</h3>
+            <div class="botones-tipo">
+                <button class="btn-tipo activo" onclick="mostrarCliente('ocasional')">🧑 Cliente de paso</button>
+                <button class="btn-tipo" onclick="mostrarCliente('frecuente')">👤 Cliente Frecuente / NIT</button>
+            </div>
+
+            <div class="caja-cliente" id="datosCliente">
+                <h4 style="color:#8B6A40; margin:15px 0 10px;">📋 Datos del Cliente</h4>
+                <div class="fila-doble">
+                    <div class="campo">
+                        <label>Cédula / NIT</label>
+                        <select>
+                            <option value="">Selecciona un cliente registrado</option>
+                            <option>1001234567 - María López</option>
+                            <option>1023456789 - Juan Pérez</option>
+                            <option>800123456 - Panadería El Sol (NIT)</option>
+                            <option>900456789 - Distribuidora La Esperanza (NIT)</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label>Nombre del Cliente</label>
+                        <input type="text" placeholder="Se llena solo al seleccionar">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 2: Agregar Productos -->
+        <div class="caja">
+            <h3>🥞 Agregar Productos a la Venta</h3>
+
+            <div class="agregar-producto">
+                <div class="campo">
+                    <label>Producto</label>
+                    <select id="listaProductos">
+                        <option>Selecciona un producto</option>
+                        <option>🥖 Pan de Queso - $2.500</option>
+                        <option>🥐 Pan Integral - $3.000</option>
+                        <option>🍰 Torta de Chocolate - $45.000</option>
+                        <option>🍪 Galletas de Avena - $800</option>
+                        <option>🧃 Jugo de Naranja - $3.500</option>
+                        <option>🎂 Torta de Vainilla - $38.000</option>
+                    </select>
+                </div>
+                <div class="campo" style="max-width:100px;">
+                    <label>Cantidad</label>
+                    <input type="number" value="1" min="1" id="cantidad">
+                </div>
+                <button class="btn-agregar">➕ Agregar</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio Unitario</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Quitar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🥖 Pan de Queso</td>
+                        <td>$2.500</td>
+                        <td>2</td>
+                        <td>$5.000</td>
+                        <td><a href="#" class="eliminar-fila">❌</a></td>
+                    </tr>
+                    <tr>
+                        <td>🍰 Torta de Chocolate</td>
+                        <td>$45.000</td>
+                        <td>1</td>
+                        <td>$45.000</td>
+                        <td><a href="#" class="eliminar-fila">❌</a></td>
+                    </tr>
+                    <tr>
+                        <td>🎂 Torta de Vainilla</td>
+                        <td>$38.000</td>
+                        <td>1</td>
+                        <td>$38.000</td>
+                        <td><a href="#" class="eliminar-fila">❌</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="total">
+                <span>TOTAL A PAGAR:</span>
+                <strong>$88.000</strong>
+            </div>
+        </div>
+
+        <!-- PASO 3: Método de Pago -->
+        <div class="caja">
+            <h3>💳 Método de Pago</h3>
+            <div class="metodos-pago">
+                <div class="metodo-pago seleccionado" onclick="seleccionarPago(this)">💵 Efectivo</div>
+                <div class="metodo-pago" onclick="seleccionarPago(this)">💳 Tarjeta</div>
+                <div class="metodo-pago" onclick="seleccionarPago(this)">📱 Nequi</div>
+                <div class="metodo-pago" onclick="seleccionarPago(this)">📲 Daviplata</div>
+            </div>
+
+            <!-- Efectivo: Calcular cambio -->
+            <div class="caja-cambio mostrar" id="cajaCambio">
+                <div class="fila-pago">
+                    <div class="campo" style="flex:1; min-width:180px;">
+                        <label class="cambio-label">💰 Con cuánto paga el cliente?</label>
+                        <input type="number" id="pagoCon" min="0" oninput="calcularCambio()">
+                    </div>
+                    <div>
+                        <span class="cambio-label">Valor a pagar:</span><br>
+                        <span class="cambio-valor">$88.000</span>
+                    </div>
+                    <div>
+                        <span class="cambio-label">💵 Vuelto:</span><br>
+                        <span class="cambio-valor" id="vuelto">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta: Número de tarjeta -->
+            <div class="caja-tarjeta" id="cajaTarjeta">
+                <div class="fila-pago">
+                    <div class="campo" style="flex:1; min-width:250px;">
+                        <label class="cambio-label">💳 Número de Tarjeta</label>
+                        <input type="text" id="numeroTarjeta" placeholder="** ** ** 1234" maxlength="19">
+                    </div>
+                    <div class="campo" style="max-width:150px;">
+                        <label class="cambio-label">Código de Seguridad</label>
+                        <input type="text" id="codigoSeguridad" placeholder="*" maxlength="4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="botones-final">
+            <button class="btn-cancelar">🗑️ Nueva Venta</button>
+            <button class="btn-finalizar">✅ Generar Factura</button>
+        </div>
+    </div>
+
+    <script>
+        let hoy = new Date();
+        let opciones = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+        document.getElementById("fechaHoy").textContent = hoy.toLocaleDateString('es-CO', opciones);
+
+        let nombre = localStorage.getItem("nombreUsuario");
+        if (nombre) {
+            document.getElementById("nombreCajera").textContent = nombre;
+        }
+
+        function mostrarCliente(tipo) {
+            document.querySelectorAll('.btn-tipo').forEach(btn => btn.classList.remove('activo'));
+            event.target.classList.add('activo');
+
+            if (tipo === 'frecuente') {
+                document.getElementById('datosCliente').classList.add('mostrar');
+            } else {
+                document.getElementById('datosCliente').classList.remove('mostrar');
+            }
+        }
+
+        function seleccionarPago(elemento) {
+            document.querySelectorAll('.metodo-pago').forEach(m => m.classList.remove('seleccionado'));
+            elemento.classList.add('seleccionado');
+
+            document.getElementById('cajaCambio').classList.remove('mostrar');
+            document.getElementById('cajaTarjeta').classList.remove('mostrar');
+
+            if (elemento.textContent.includes('Efectivo')) {
+                document.getElementById('cajaCambio').classList.add('mostrar');
+            } else if (elemento.textContent.includes('Tarjeta')) {
+                document.getElementById('cajaTarjeta').classList.add('mostrar');
+            }
+        }
+
+        function calcularCambio() {
+            let total = 88000;
+            let pagoCon = parseInt(document.getElementById('pagoCon').value) || 0;
+            let vuelto = pagoCon - total;
+
+            if (vuelto >= 0) {
+                document.getElementById('vuelto').textContent = '$' + vuelto.toLocaleString('es-CO');
+            } else {
+                document.getElementById('vuelto').textContent = 'Faltan $' + Math.abs(vuelto).toLocaleString('es-CO');
+            }
+        }
+    </script>
+</body>
+</html>

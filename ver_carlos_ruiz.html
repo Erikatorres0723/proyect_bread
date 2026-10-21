@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Ruiz - PanAmazonas</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background-color:#FFF8F0;font-family:'Segoe UI',serif;min-height:100vh;display:flex;}
+        .barra-lateral{width:220px;background-color:#B6864C;padding:25px 15px;display:flex;flex-direction:column;}
+        .barra-lateral h1{color:#FFF;font-size:22px;text-align:center;margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.3);}
+        .boton-lateral{color:#FFF;text-decoration:none;padding:12px 15px;margin-bottom:8px;border-radius:6px;font-size:16px;}
+        .boton-lateral:hover{background-color:#966A3C;}
+        .espacio{flex-grow:1;}
+        .botones-abajo{margin-top:20px;padding-top:15px;border-top:1px solid rgba(255,255,255,.3);}
+        .btn-regresar{display:block;background-color:#F2D6A0;color:#8B6A40;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;margin-bottom:10px;font-size:15px;font-weight:500;}
+        .btn-regresar:hover{background-color:#E8C88C;}
+        .btn-cerrar{display:block;background-color:#C85050;color:#FFF;text-decoration:none;padding:10px 15px;border-radius:6px;text-align:center;font-size:15px;}
+        .btn-cerrar:hover{background-color:#B04040;}
+        .contenido-principal{flex-grow:1;padding:30px 40px;}
+        .encabezado-pagina{margin-bottom:30px;}
+        .encabezado-pagina h1{color:#B6864C;font-size:32px;}
+        .encabezado-pagina p{color:#8B7355;font-size:16px;margin-top:5px;}
+        .tarjeta-cliente{background-color:#FFF;padding:30px;border-radius:10px;border:2px solid #F2C970;margin-bottom:25px;}
+        .info-grupo{margin-bottom:15px;}
+        .info-grupo label{display:block;color:#8B7355;font-size:14px;font-weight:500;}
+        .info-grupo span{display:block;color:#6B5A40;font-size:16px;margin-top:3px;}
+        .total-compras{background-color:#FDF6E8;padding:20px;border-radius:8px;text-align:center;margin:25px 0;}
+        .total-compras h2{color:#B6864C;font-size:18px;}
+        .total-compras .monto{color:#8B5A20;font-size:32px;font-weight:bold;margin-top:10px;}
+        table{width:100%;border-collapse:collapse;margin-top:20px;}
+        th{background-color:#B6864C;color:#FFF;padding:12px 15px;text-align:left;font-size:15px;}
+        td{padding:12px 15px;border-bottom:1px solid #F0E2C8;color:#6B5A40;font-size:15px;}
+        .botones{margin-top:25px;display:flex;gap:15px;}
+        .btn-volver{background-color:#B6864C;color:#FFF;padding:10px 25px;text-decoration:none;border-radius:6px;font-size:15px;}
+        .btn-volver:hover{background-color:#966A3C;}
+        .enlace-factura{color:#B6864C;font-weight:bold;text-decoration:none;}
+        .enlace-factura:hover{text-decoration:underline;}
+    </style>
+</head>
+<body>
+    <div class="barra-lateral">
+        <h1>🥖 PanAmazonas</h1>
+        <a href="productos.html" class="boton-lateral">📦 Productos</a>
+        <a href="ventas.html" class="boton-lateral">🛒 Ventas y Facturas</a>
+        <a href="clientes.html" class="boton-lateral activo">👤 Clientes</a>
+        <a href="proveedores.html" class="boton-lateral">🏭 Proveedores</a>
+        <a href="empleados.html" class="boton-lateral">👥 Empleados</a>
+        <a href="reportes.html" class="boton-lateral">📊 Reportes</a>
+        <div class="espacio"></div>
+        <div class="botones-abajo">
+            <a href="clientes.html" class="btn-regresar">⬅️ Regresar a Clientes</a>
+            <a href="index.html" class="btn-cerrar">🔒 Cerrar Sesión</a>
+        </div>
+    </div>
+    <div class="contenido-principal">
+        <div class="encabezado-pagina">
+            <h1>Perfil del Cliente</h1>
+            <p>Información completa e historial de compras</p>
+        </div>
+        <div class="tarjeta-cliente">
+            <div class="info-grupo">
+                <label>Nombre Completo</label>
+                <span>Carlos Ruiz</span>
+            </div>
+            <div class="info-grupo">
+                <label>Cédula</label>
+                <span>104567890</span>
+            </div>
+            <div class="info-grupo">
+                <label>Teléfono</label>
+                <span>310-4567890</span>
+            </div>
+            <div class="info-grupo">
+                <label>Correo Electrónico</label>
+                <span>carlos.ruiz@gmail.com</span>
+            </div>
+            <div class="info-grupo">
+                <label>Dirección</label>
+                <span>Carrera 15 #88-20</span>
+            </div>
+            <div class="total-compras">
+                <h2>💰 Total Comprado</h2>
+                <div class="monto">$10.000</div>
+            </div>
+            <h3 style="color:#B6864C;margin-top:25px;margin-bottom:15px;">📋 Historial de Facturas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° Factura</th>
+                        <th>Fecha</th>
+                        <th>Valor</th>
+                        <th>Ver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000004</td>
+                        <td>10/10/2026</td>
+                        <td>$10.000</td>
+                        <td><a href="factura_carlos_ruiz.html" class="enlace-factura">📄 Ver Factura</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="botones">
+            <a href="clientes.html" class="btn-volver">⬅️ Volver a la lista</a>
+        </div>
+    </div>
+</body>
+</html>

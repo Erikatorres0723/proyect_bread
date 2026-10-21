@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - PanAmazonas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #FFF8E7 0%, #FED9ED 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Decoraciones de fondo */
+        .decoracion {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        .d1 { top: 10%; left: 10%; }
+        .d2 { top: 20%; right: 15%; }
+        .d3 { bottom: 15%; left: 20%; }
+        .d4 { bottom: 25%; right: 10%; }
+        .d5 { top: 50%; left: 5%; }
+        .d6 { top: 60%; right: 5%; }
+        
+        .contenedor-login {
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(85, 107, 47, 0.15);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .iconos-superior {
+            font-size: 50px;
+            margin-bottom: 5px;
+        }
+        h1 {
+            color: #556B2F;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+        .subtitulo {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .grupo-input {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            color: #556B2F;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #E8E8E8;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #F4A460;
+        }
+        .btn-ingresar {
+            width: 100%;
+            background: linear-gradient(90deg, #556B2F 0%, #6B8E23 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            margin-top: 10px;
+        }
+        .btn-ingresar:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+        .pie {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Figuritas decorativas de fondo -->
+    <div class="decoracion d1">🍞</div>
+    <div class="decoracion d2">🥖</div>
+    <div class="decoracion d3">🎂</div>
+    <div class="decoracion d4">🥐</div>
+    <div class="decoracion d5">🍰</div>
+    <div class="decoracion d6">🥨</div>
+
+    <div class="contenedor-login">
+        <!-- Pan y tortica arriba del título -->
+        <div class="iconos-superior">🥖 🎂</div>
+        <h1>PanAmazonas</h1>
+        <p class="subtitulo">Sistema de Gestión de Panadería y Pastelería</p>
+        
+        <form action="menu.html">
+            <div class="grupo-input">
+                <label for="usuario">👤 Usuario</label>
+                <input type="text" id="usuario" placeholder="Ingresa tu usuario">
+            </div>
+            
+            <div class="grupo-input">
+                <label for="contraseña">🔒 Contraseña</label>
+                <input type="password" id="contraseña" placeholder="Ingresa tu contraseña">
+            </div>
+            
+            <button type="submit" class="btn-ingresar">✅ Ingresar al Sistema</button>
+        </form>
+        
+        <p class="pie">© 2026 PanAmazonas - Todos los derechos reservados 🥖</p>
+    </div>
+
+</body>
+</html>
